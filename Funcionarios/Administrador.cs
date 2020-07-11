@@ -8,16 +8,15 @@ namespace ByteBank.Funcionarios
 {
     class Administrador : Funcionario
     {
-        private double bonificacao;
         public override double Bonificacao
         {
             get
             {
-                return bonificacao;
+                return base.Bonificacao;
             }
             set
             {
-                bonificacao = value * 0.15;
+                base.Bonificacao = value * 0.15;
             }
         }
     }
