@@ -8,6 +8,10 @@ namespace ByteBank.Funcionarios
 {
     class Gerente: Funcionario
     {
+        public Gerente(string cpf, double salario) : base(cpf, salario)
+        {
+
+        }
         public override double Bonificacao
         {
             get
@@ -16,7 +20,7 @@ namespace ByteBank.Funcionarios
             }
             set
             {
-                base.Bonificacao = value * 0.20;
+                base.Bonificacao = value * 0.25;
             }
         }
     }

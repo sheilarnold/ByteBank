@@ -24,43 +24,43 @@ namespace ByteBank
                     switch (cargo)
                     {
                         case 1:
-                            Administrador adm = new Administrador();
-
                             Console.Write("Informe o nome: ");
-                            adm.Nome = Console.ReadLine();
+                            string nome = Console.ReadLine();
                             Console.Write("Informe o CPF:");
-                            adm.CPF = Console.ReadLine();
+                            string cpf = Console.ReadLine();
                             Console.Write("Informe o salário: ");
-                            adm.Salario = Convert.ToDouble(Console.ReadLine());
+                            double salario = Convert.ToDouble(Console.ReadLine());
 
+                            Administrador adm = new Administrador(cpf, salario);
+                            adm.Nome = nome;
                             adm.Bonificacao = adm.Salario;
 
                             Console.WriteLine($"Resumo do cadastro:\nNome: {adm.Nome} \nCargo: Administrador\nSalário: {adm.Salario}\nBonificação: {adm.Bonificacao}\n");
                             break;
                         case 2:
-                            Gerente ger = new Gerente();
-
                             Console.Write("Informe o nome: ");
-                            ger.Nome = Console.ReadLine();
+                            nome = Console.ReadLine();
                             Console.Write("Informe o CPF:");
-                            ger.CPF = Console.ReadLine();
+                            cpf = Console.ReadLine();
                             Console.Write("Informe o salário: ");
-                            ger.Salario = Convert.ToDouble(Console.ReadLine());
+                            salario = Convert.ToDouble(Console.ReadLine());
 
+                            Gerente ger = new Gerente(cpf, salario);
+                            ger.Nome = nome;
                             ger.Bonificacao = ger.Salario;
 
                             Console.WriteLine($"Resumo do cadastro:\nNome: {ger.Nome} \nCargo: Administrador\nSalário: {ger.Salario}\nBonificação: {ger.Bonificacao}\n");
                             break;
                         case 3:
-                            Diretor dir = new Diretor();
-
                             Console.Write("Informe o nome: ");
-                            dir.Nome = Console.ReadLine();
+                            nome = Console.ReadLine();
                             Console.Write("Informe o CPF:");
-                            dir.CPF = Console.ReadLine();
+                            cpf = Console.ReadLine();
                             Console.Write("Informe o salário: ");
-                            dir.Salario = Convert.ToDouble(Console.ReadLine());
+                            salario = Convert.ToDouble(Console.ReadLine());
 
+                            Diretor dir = new Diretor(cpf, salario);
+                            dir.Nome = nome;
                             dir.Bonificacao = dir.Salario;
 
                             Console.WriteLine($"Resumo do cadastro:\nNome: {dir.Nome} \nCargo: Administrador\nSalário: {dir.Salario}\nBonificação: {dir.Bonificacao}\n");
