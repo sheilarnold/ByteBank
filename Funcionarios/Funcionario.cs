@@ -21,9 +21,22 @@ namespace ByteBank.Funcionarios
             Salario = salario;
             totalFuncionarios++;
         }
-        public abstract double Bonificacao();
+        public virtual double Bonificacao
+        {
+            get
+            {
+                return bonificacao;
+            }
+            set
+            {
+                this.bonificacao = value * 0.20;
+            }
+        }
 
-        public abstract void aumento();
-        
+        public virtual void aumento()
+        {
+            Salario += (Salario * 0.1);
+        }
+
     }
 }

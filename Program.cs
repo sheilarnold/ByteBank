@@ -1,4 +1,5 @@
 ﻿using ByteBank.Funcionarios;
+using ByteBank.Sistemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,13 +12,33 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
+            SisByteBank();
+
+            Console.WriteLine("Fim do projeto, pressione enter para finalizá-lo");
+            Console.ReadLine();
+        }
+
+        public static void SisByteBank()
+        {
+            SistemaInterno sis = new SistemaInterno();
+
+            Diretor dir = new Diretor("111.212.363.90", 5000);
+
+            dir.Nome = "Camila Fernandez";
+            dir.Senha = "123";
+
+            sis.Login(dir, dir.Senha);
+        }
+
+        public static void Menu()
+        {
             int sair = 1;
-            while(sair != 0)
+            while (sair != 0)
             {
                 int op;
                 Console.Write("Bem vindo(a)!\n\nEscolha uma opção:\n1 - Cadastrar funcionário\n2 - Cadastrar cliente\n0 - Sair\n.:");
                 op = Convert.ToInt32(Console.ReadLine());
-                if(op == 1)
+                if (op == 1)
                 {
                     Console.Write("Informe o cargo funcionário:\n1 - Administrador\n2 - Gerente\n3 - Diretor\n.:");
                     int cargo = Convert.ToInt32(Console.ReadLine());
@@ -68,7 +89,8 @@ namespace ByteBank
 
                     }
                 }
-                else if (op == 2) {
+                else if (op == 2)
+                {
                     Console.Write("Informe a agência: ");
                     int agencia = Convert.ToInt32(Console.ReadLine());
                     Console.Write("Informe a conta: ");
@@ -88,12 +110,12 @@ namespace ByteBank
 
                     Console.Write("Deseja fazer um depósito?\n0 - Não\n1 - Sim\n.:");
                     op = Convert.ToInt32(Console.ReadLine());
-                    if(op == 1)
+                    if (op == 1)
                     {
                         Console.Write("Informe o valor para depósito: ");
                         c.Depositar(Convert.ToDouble(Console.ReadLine()));
                     }
-                        Console.WriteLine($"Resumo do cadastro:\nNome: {cli.Nome} \nProfissão: {cli.Profissao}\nAgência: {c.Agencia}\nConta: {c.Conta}\nSaldo: {c.Saldo}");
+                    Console.WriteLine($"Resumo do cadastro:\nNome: {cli.Nome} \nProfissão: {cli.Profissao}\nAgência: {c.Agencia}\nConta: {c.Conta}\nSaldo: {c.Saldo}");
 
                 }
                 else
@@ -103,9 +125,6 @@ namespace ByteBank
                 Console.Write("Deseja sair do sistema?\n0 - Sim\n1 - Não\n.:");
                 sair = Convert.ToInt32(Console.ReadLine());
             }
-
-            Console.WriteLine("Fim do projeto, pressione enter para finalizá-lo");
-            Console.ReadLine();
         }
     }
 }

@@ -12,7 +12,7 @@ namespace ByteBank
         private double totalBonificacao;
         public void Registrar(Funcionario funcionario)
         {
-            totalBonificacao += funcionario.Bonificacao;
+            totalBonificacao += getBonificacao();
         }
 
         public double getBonificacao()
