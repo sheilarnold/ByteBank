@@ -28,6 +28,11 @@ namespace ByteBank
             dir.Senha = "123";
 
             sis.Login(dir, dir.Senha);
+
+            ParceiroComercial par = new ParceiroComercial();
+            par.Senha = "321";
+
+            sis.Login(par, par.Senha);
         }
 
         public static void Menu()

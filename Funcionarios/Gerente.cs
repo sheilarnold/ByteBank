@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ByteBank.Funcionarios
 {
-    class Gerente: Autenticavel
+    class Gerente: FuncionarioAutenticavel
     {
         public Gerente(string cpf, double salario) : base(cpf, salario)
         {
@@ -24,5 +24,6 @@ namespace ByteBank.Funcionarios
                 base.Bonificacao = value * 0.25;
             }
         }
+
     }
 }

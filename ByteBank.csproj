@@ -50,8 +50,10 @@
     <Compile Include="Funcionarios\Administrador.cs" />
     <Compile Include="Funcionarios\Diretor.cs" />
     <Compile Include="Funcionarios\Funcionario.cs" />
+    <Compile Include="Funcionarios\FuncionarioAutenticavel.cs" />
     <Compile Include="Funcionarios\Gerente.cs" />
     <Compile Include="GerenciadorBonificacao.cs" />
+    <Compile Include="ParceiroComercial.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sistemas\Autenticavel.cs" />
