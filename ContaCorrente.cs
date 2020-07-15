@@ -1,4 +1,6 @@
-﻿namespace ByteBank {
+﻿using System;
+
+namespace ByteBank {
     public class ContaCorrente
     {
         private Cliente titular;
@@ -9,11 +11,22 @@
         //apenas o set é privado
         public static int totalContas { get; private set; }
 
+        public static double taxaOperacao { get; private set; }
+
         public ContaCorrente(int agencia, int conta)
         {
-            Agencia = agencia;
-            Conta = conta;
-            totalContas += 1;
+            try
+            {
+                Agencia = agencia;
+                Conta = conta;
+                taxaOperacao = 30 / totalContas;
+                totalContas += 1;
+            }
+            catch (System.DivideByZeroException)
+            {
+                Console.WriteLine("Ocorreu um erro ao registrar nova conta, favor, tente novamente mais tarde.");
+            }
+
         }
 
         public Cliente Titular { get; set; }
