@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ByteBank.Excecoes;
+using System;
 
 namespace ByteBank {
     public class ContaCorrente
@@ -56,21 +57,28 @@ namespace ByteBank {
             }
         }
 
-        public bool Saque(double valor)
+        public void Saque(double valor)
         {
+            if(valor <= 0)
+            {
+                throw new ArgumentException("Valor inválido para saque.", nameof(valor));
+            }
             if(valor > this.saldo || valor <= 0)
             {
-                return false;
+                throw new SaldoInsuficienteException(Saldo, valor);
             }
             else
             {
                 this.saldo -= valor;
-                return true;
             }
         }
 
         public bool Depositar(double valor)
         {
+            if (valor <= 0)
+            {
+                throw new ArgumentException("Valor inválido para saque.", nameof(valor));
+            }
             if (valor > 0 || valor <= 0) 
             { 
                 this.saldo += valor;
@@ -82,17 +90,14 @@ namespace ByteBank {
             }
         }
 
-        public bool Transferir(double valor, ContaCorrente conta)
+        public void Transferir(double valor, ContaCorrente conta)
         {
-            if(valor > this.saldo || valor <= 0)
+            if (valor <= 0)
             {
-                return false;
+                throw new ArgumentException("Valor inválido para tranferência.", nameof(valor));
             }
-            else
-            {
-                this.saldo -= valor;
-                return Depositar(valor);
-            }
+            Saque(valor);
+            conta.Depositar(valor);
         }
     }
 }
