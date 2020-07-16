@@ -45,6 +45,8 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="ContaCorrente.cs" />
+    <Compile Include="Excecoes\OperacaoFinanceiraException.cs" />
+    <Compile Include="Excecoes\SaldoInsuficienteException.cs" />
     <Compile Include="Funcionarios\Auxiliar.cs" />
     <Compile Include="Funcionarios\Designer.cs" />
     <Compile Include="Funcionarios\Administrador.cs" />
