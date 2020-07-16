@@ -13,55 +13,32 @@ namespace ByteBank {
 
         public static double taxaOperacao { get; private set; }
 
+        public int Conta { get; }
         public ContaCorrente(int agencia, int conta)
         {
-            try
+            if(agencia <= 0)
+            {
+                ArgumentException e = new ArgumentException("Agencia informada não atende à regra básica de configuração: ser maio ou igual à 1.");
+                throw e;
+            }
+            else if (conta <= 0)
+            {
+                ArgumentException e = new ArgumentException("Número informado não atende à regra básica de configuração: ser maior ou igual à 1.");
+                throw e;
+            }
+            else
             {
                 Agencia = agencia;
                 Conta = conta;
                 taxaOperacao = 30 / totalContas;
-                totalContas += 1;
-            }
-            catch (System.DivideByZeroException)
-            {
-                Console.WriteLine("Ocorreu um erro ao registrar nova conta, favor, tente novamente mais tarde.");
+                totalContas++;
             }
 
         }
 
         public Cliente Titular { get; set; }
 
-        public int Agencia
-        {
-            get
-            {
-                return agencia;
-            }
-            set
-            {
-                if(value <= 0)
-                {
-                    return;
-                }
-                agencia = value;
-            }
-        }
-
-        public int Conta
-        {
-            get
-            {
-                return conta;
-            }
-            set
-            {
-                if (value <= 0)
-                {
-                    return;
-                }
-                conta = value;
-            }
-        }
+        public int Agencia { get; }
 
         public double Saldo
         {
@@ -78,7 +55,7 @@ namespace ByteBank {
                 saldo = value;
             }
         }
-                
+
         public bool Saque(double valor)
         {
             if(valor > this.saldo || valor <= 0)

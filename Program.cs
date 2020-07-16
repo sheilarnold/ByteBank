@@ -12,11 +12,20 @@ namespace ByteBank
     {
         static void Main(string[] args)
         {
-           // SisByteBank();
-
-            ContaCorrente c1 = new ContaCorrente(75846, 552158244);
-            Console.WriteLine(ContaCorrente.taxaOperacao);
-
+            // SisByteBank();
+            try
+            {
+                ContaCorrente c1 = new ContaCorrente(0, 0);                
+            }
+            catch (ArgumentException ae)
+            {
+                Console.WriteLine(ae.Message);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
             Console.WriteLine("Fim do projeto, pressione enter para finalizá-lo");
             Console.ReadLine();
         }
